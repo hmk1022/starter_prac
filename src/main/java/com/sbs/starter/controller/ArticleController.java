@@ -18,19 +18,26 @@ import groovy.util.logging.Slf4j;
 @Slf4j // log.info(...)이 가능하게 됨 , 디버깅 용도
 
 public class ArticleController {
-	@Autowired //Bean 자동주입
-	ArticleService articleService; 
-	
+	@Autowired // Bean 자동주입
+	ArticleService articleService;
+
 	@RequestMapping("/article/list") // 이 url로 요청이 오면
-	public String showList(Model aModel ) { // 이렇게 response를 해준다
-		
+	public String showList(Model aModel) { // 이렇게 response를 해준다
+
 		List<Article> list = articleService.getList(); // 이것은 가짜데이터들
-		
-		//System.out.println("list : " + list); // 디버깅
-		
-		aModel.addAttribute("list",list);
+
+		// System.out.println("list : " + list); // 디버깅
+
+		aModel.addAttribute("list", list);
 		// request.setAttribute("list", list); 와 같은 표현이다
-		
+
 		return "article/list"; // jsp 파일을 보내줌
 	}
+
+	@RequestMapping("/article/add")
+	public String showAdd(){
+
+	
+		return "article/add"; 
+	}	
 }

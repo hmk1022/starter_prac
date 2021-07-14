@@ -7,4 +7,5 @@ import com.sbs.starter.dto.Article;
 public interface ArticleService {
 	public List<Article> getList();
 	
+	
 }
