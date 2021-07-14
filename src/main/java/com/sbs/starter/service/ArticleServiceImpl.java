@@ -9,6 +9,7 @@ import com.sbs.starter.dto.Article;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
+	// DB에 접근해 데이터를 가져오는곳?
 	public List<Article> getList(){
 		//일단 가짜데이터를 뿌려보자
 		Article article1 = new Article(1, "2019-08-20 12:12:12", "제목1", "내용1");
