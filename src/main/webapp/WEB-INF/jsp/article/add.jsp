@@ -68,21 +68,7 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 			
 		}
 	//
-	function submitAddForm(form) {
-			form.title.value = form.title.value.trim();
-			if (form.title.value.length == 0) {
-				alert('제목을 입력해주세요.');
-				form.title.focus();
-				return false;
-			}
-			form.body.value = form.body.value.trim();
-			if (form.body.value.length == 0) {
-				alert('내용을 입력해주세요.');
-				form.body.focus();
-				return false;
-			}
-			form.submit();
-		}
+	
 	
 	</script>
 	<!-- submit 버튼을 누르면 doAdd 페이지로 간다 -->

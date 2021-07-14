@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!-- DB에 접근하는 곳 -->
 <mapper namespace="com.sbs.starter.dao.ArticleDao">
 	<select id="getList" parameterType="map" resultType="Article">
-		SELECT * FROM article 
+		SELECT * FROM article ORDER BY id DESC 
 	</select>
+	
+	<insert id="add" parameterType ="map">
+		INSERT INTO article
+		SET regData = NOW(),
+		title = #{title},
+		body = #{body}
+	</insert>
+	
 </mapper>

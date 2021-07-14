@@ -1,11 +1,13 @@
 package com.sbs.starter.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.javaparser.utils.Log;
@@ -24,7 +26,7 @@ public class ArticleController {
 	@RequestMapping("/article/list") // 이 url로 요청이 오면
 	public String showList(Model aModel) { // 이렇게 response를 해준다
 
-		List<Article> list = articleService.getList(); // 이것은 가짜데이터들
+		List<Article> list = articleService.getList(); 
 
 		// System.out.println("list : " + list); // 디버깅
 
@@ -36,8 +38,20 @@ public class ArticleController {
 
 	@RequestMapping("/article/add")
 	public String showAdd(){
-
-	
 		return "article/add"; 
+	}	
+	
+	@RequestMapping("/article/doAdd")
+	@ResponseBody
+	//HttpServeletRequest req;
+	public String doAdd(@RequestParam Map<String, Object> param, String title  ){
+		
+		
+		articleService.add(param);
+		
+		/*
+		 * param.get("title"); param.get("body");
+		 */
+		return "게시물이 추가되었습니다!"; 
 	}	
 }
