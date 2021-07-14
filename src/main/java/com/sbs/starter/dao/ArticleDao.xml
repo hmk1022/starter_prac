@@ -3,6 +3,6 @@
 
 <mapper namespace="com.sbs.starter.dao.ArticleDao">
 	<select id="getList" parameterType="map" resultType="Article">
-		SELECT * FROM article ORDER BY id DESC
+		SELECT * FROM article 
 	</select>
 </mapper>
