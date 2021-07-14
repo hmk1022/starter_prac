@@ -107,7 +107,7 @@
 		</dependency>
 
 		<!-- 메일 보내기 위한 -->
-	<!-- 	<dependency>
+	<!-- <dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 		</dependency> -->
