@@ -46,6 +46,45 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 </head>
 <body>
 	<h1>게시물 작성</h1>
+	<script>
+		function submitAddForm(form) {
+			/* trim은 공백제거  */
+			/* form태그 안에 있는 인풋값에 name을 이용해 바로접근가능 */
+			form.title.value.length = form.title.value.trim();
+			if( form.title.value == 0){
+				alert('제목을 입력해 주세요!')
+				form.title.focus();
+				return false;
+			} 
+			
+			form.body.value = form.body.value.trim();
+			if( form.body.value.length == 0){
+				alert('내용을 입력해 주세요!')
+				form.body.focus();
+				return false;
+			} 
+			
+			form.submit();
+			
+		}
+	//
+	function submitAddForm(form) {
+			form.title.value = form.title.value.trim();
+			if (form.title.value.length == 0) {
+				alert('제목을 입력해주세요.');
+				form.title.focus();
+				return false;
+			}
+			form.body.value = form.body.value.trim();
+			if (form.body.value.length == 0) {
+				alert('내용을 입력해주세요.');
+				form.body.focus();
+				return false;
+			}
+			form.submit();
+		}
+	
+	</script>
 	<!-- submit 버튼을 누르면 doAdd 페이지로 간다 -->
 	<form class="con common-form" action="./doAdd" method="POST"
 		onsubmit="submitAddForm(this); return false;">
