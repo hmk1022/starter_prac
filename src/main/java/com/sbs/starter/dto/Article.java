@@ -12,4 +12,5 @@ public class Article { // 여기서 Article이라는 객체를 만들어주고 �
 	private String regDate;
 	private String title;
 	private String body;
+	private long hit;
 }

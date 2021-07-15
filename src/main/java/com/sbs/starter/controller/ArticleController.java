@@ -29,6 +29,10 @@ public class ArticleController {
 
 		Article article = articleService.getOne(id);
 
+		//조회수
+		
+		articleService.hitUp(id);
+	
 		model.addAttribute("article", article);
 
 		return "article/detail"; // jsp 파일을 보내줌

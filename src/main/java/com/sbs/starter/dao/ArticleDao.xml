@@ -30,6 +30,13 @@
 		WHERE id = #{id}
 	</update>
 
+	<!-- 조회수 증가 -->
+	<update id="hitUp" parameterType="long">
+		UPDATE article
+		SET hit = hit + 1
+		WHERE id = #{id}
+	</update>
+
 	<!-- genertate article key & 게시물 등록 -->
 	<insert id="add" parameterType="map" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO article
