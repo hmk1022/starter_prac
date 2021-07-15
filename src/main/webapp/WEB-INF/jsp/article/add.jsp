@@ -18,7 +18,7 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 <lint rel="stylesheet" href="/resource/common.css" />
 </head>
 <body>
-	<h1 class="header">게시물 작성</h1>
+	
 	<script>
 		function submitAddForm(form) {
 			/* trim은 공백제거  */
@@ -40,10 +40,8 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 			form.submit();
 			
 		}
-	//
-	
-	
 	</script>
+	<h1 class="con">게시물 작성</h1>
 	<!-- submit 버튼을 누르면 doAdd 페이지로 간다 -->
 	<form class="con common-form" action="./doAdd" method="POST"
 		onsubmit="submitAddForm(this); return false;">

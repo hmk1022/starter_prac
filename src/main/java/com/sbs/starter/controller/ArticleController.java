@@ -34,6 +34,18 @@ public class ArticleController {
 		return "article/detail"; // jsp 파일을 보내줌
 	}
 
+	// 수정 
+	@RequestMapping("/article/modify") // 이 url로 요청이 오면
+	public String showModify(Model model, long id) { // id도 받아야 id에 맞는 상세페이지 view 제공
+
+		Article article = articleService.getOne(id);
+
+		model.addAttribute("article", article);
+
+		return "article/modify"; // jsp 파일을 보내줌
+	}
+	
+	
 	@RequestMapping("/article/list") // 이 url로 요청이 오면
 	public String showList(Model model) { // 이렇게 response를 해준다
 
@@ -55,6 +67,33 @@ public class ArticleController {
 		return "article/add";
 	}
 
+	// 게시물 수정 페이지
+	
+	@RequestMapping("/article/doModify")
+	@ResponseBody
+	// HttpServeletRequest req;
+	public String doModify(@RequestParam Map<String, Object> param, long id) {
+		// Map<String, Object> => string 값의 객체라는 뜻인가?
+ 		// param은 {title = "title", body = "body"} 이런 형식으로 데이터가 담긴다
+
+		articleService.modify(param);
+
+		String msg = id + "번 게시물이 수정되었습니다.";
+
+		// StringBuilder은 문자열을 합칠때 사용한다
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("alert('" + msg + "');");
+		sb.append("location.replace('./detail?id=" + id + "');");
+		sb.insert(0, "<script>"); // 맨앞에 추가
+		sb.append("</script>"); // 맨뒤에 추가 => script 형태로 자바스크립트 코드를 구현할 수 있다?
+
+		return sb.toString();
+	}
+	
+	
+	
+	
 	@RequestMapping("/article/doAdd")
 	@ResponseBody
 	// HttpServeletRequest req;

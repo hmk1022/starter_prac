@@ -17,11 +17,18 @@
 	</select>
 
 	<!-- 게시물 삭제 -->
-	<delete id="delete" parameterType="long" >
+	<delete id="delete" parameterType="long">
 		DELETE FROM article
 		WHERE id = #{id}
 	</delete>
 
+	<!-- 게시물 수정 -->
+	<update id="modify" parameterType="map">
+		UPDATE article
+		SET title = #{title},
+		body = #{body}
+		WHERE id = #{id}
+	</update>
 
 	<!-- genertate article key & 게시물 등록 -->
 	<insert id="add" parameterType="map" useGeneratedKeys="true" keyProperty="id">
