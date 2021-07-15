@@ -28,11 +28,17 @@
 			return false;
 		}
 		
+		if (form.loginPwConfirm.value !== form.loginPw.value) {			
+			alert('로그인 pw확인을 해주세요!')
+			form.loginPwConfirm.focus();
+			return false
+		}
+		
 		form.submit();
 	}
 </script>
 
-<form class="con common-form" action="./doAdd" method="POST"
+<form class="con common-form" action="./doJoin" method="POST"
 	onsubmit="submitJoinForm(this); return false;">
 	<div>
 		<span> 로그인ID </span>
@@ -62,8 +68,11 @@
 		<div>
 			<input type="submit" value="가입"> <input
 				type="reset" value="취소" onclick="history.back();">
+			<a href='/'>메인 </a>	
+				
 		</div>
 	</div>
+	
 
 </form>
 <%@ include file="../part/foot.jspf"%>
