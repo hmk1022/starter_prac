@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.sbs.starter.dao.ArticleDao;
 import com.sbs.starter.dto.Article;
+import com.sbs.starter.util.CUtil;
 
 import groovy.util.logging.Slf4j;
 
@@ -35,11 +36,13 @@ public class ArticleServiceImpl implements ArticleService {
 		// 여기 리턴값은 게시물 번호를 의미함
 		
 		// 고유한 새로운 게시물 id 생성
-		BigInteger bigIntId = (BigInteger)param.get("id");
-		long newId = bigIntId.longValue();
+		/*
+		 * BigInteger bigIntId = (BigInteger)param.get("id"); long newId =
+		 * bigIntId.longValue();
+		 */
 		
-		  System.out.println(param.get("id"));
+		 
 		
-		return newId;
+		return CUtil.getAslong(param.get("id"));
 	}
 }

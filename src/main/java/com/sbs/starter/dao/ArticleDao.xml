@@ -12,5 +12,4 @@
 		title = #{title},
 		body = #{body}
 	</insert>
-	
 </mapper>
