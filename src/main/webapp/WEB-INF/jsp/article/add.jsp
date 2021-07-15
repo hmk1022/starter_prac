@@ -16,6 +16,8 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 <title>게시물 작성</title>
 
 <style>
+
+
 .con {
 	width: 1000px;
 	margin: 0 auto;
@@ -45,7 +47,7 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 </style>
 </head>
 <body>
-	<h1>게시물 작성</h1>
+	<h1 class="header">게시물 작성</h1>
 	<script>
 		function submitAddForm(form) {
 			/* trim은 공백제거  */

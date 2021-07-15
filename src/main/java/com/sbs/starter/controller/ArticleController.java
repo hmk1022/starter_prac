@@ -45,13 +45,13 @@ public class ArticleController {
 	@ResponseBody
 	//HttpServeletRequest req;
 	public String doAdd(@RequestParam Map<String, Object> param, String title  ){
+		// param은 {title = "title", body = "body"} 이런 형식으로 데이터가 담긴다
 		
-		
-		articleService.add(param);
+		long newId = articleService.add(param);
 		
 		/*
 		 * param.get("title"); param.get("body");
 		 */
-		return "게시물이 추가되었습니다!"; 
+		return newId + "번 게시물이 추가되었습니다!"; 
 	}	
 }
