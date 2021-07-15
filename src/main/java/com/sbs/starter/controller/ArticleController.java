@@ -25,14 +25,17 @@ public class ArticleController {
 
 	@RequestMapping("/article/list") // 이 url로 요청이 오면
 	public String showList(Model aModel) { // 이렇게 response를 해준다
-
+		
 		List<Article> list = articleService.getList(); 
-
+		int totalCount = articleService.getTotalCount();
+		
 		// System.out.println("list : " + list); // 디버깅
-
-		aModel.addAttribute("list", list);
 		// request.setAttribute("list", list); 와 같은 표현이다
-
+		aModel.addAttribute("list", list);
+		
+		// 전체 게시물 개수
+		aModel.addAttribute("totalCount",totalCount);
+		
 		return "article/list"; // jsp 파일을 보내줌
 	}
 
@@ -52,6 +55,20 @@ public class ArticleController {
 		/*
 		 * param.get("title"); param.get("body");
 		 */
-		return newId + "번 게시물이 추가되었습니다!"; 
+		
+		String msg = newId + "번 게시물이 추가되었습니다."; 
+		
+		// StringBuilder은 문자열을 합칠때 사용한다
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("alert('"+ msg +"');");
+		sb.append("location.replace('./detail?id="+ newId + "');");
+		sb.insert(0,"<script>"); // 맨앞에 추가
+		sb.append("</script>"); // 맨뒤에 추가 => script 형태로 자바스크립트 코드를 구현할 수 있다?
+		// 그 이유는 페이지 이동 등의 자바스크립트 코드가 필요하기때문?
+		// => <script>alert('31번 게시물이 추가되었습니다!')location.replace('./detail?id=31');</script>
+		System.out.println(sb);
+		
+		return sb.toString(); 
 	}	
 }

@@ -5,6 +5,10 @@
 	<select id="getList" parameterType="map" resultType="Article">
 		SELECT * FROM article ORDER BY id DESC 
 	</select>
+	<!-- 게시물 갯수 가져오기 -->
+	<select id="getTotalCount" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM article
+	</select>
 	
 	<insert id="add" parameterType ="map" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO article
