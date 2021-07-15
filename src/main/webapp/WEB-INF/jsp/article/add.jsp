@@ -15,36 +15,7 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 <meta charset="UTF-8">
 <title>게시물 작성</title>
 
-<style>
-
-
-.con {
-	width: 1000px;
-	margin: 0 auto;
-}
-
-.common-form>div>* {
-	float: left;
-}
-
-.common-form>div::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-.common-form>div>span {
-	width: 50px;
-}
-
-.common-form>div>div {
-	width: calc(100% - 50px);
-}
-
-.common-form>div>div>input[type="text"], .common-form>div>div>textarea {
-	width: 90%;
-}
-</style>
+<lint rel="stylesheet" href="/resource/common.css" />
 </head>
 <body>
 	<h1 class="header">게시물 작성</h1>
@@ -94,7 +65,7 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 		<div>
 			<span> 작성 </span>
 			<div>
-				<input type="submit" value="작성"> 
+				<input type="submit" value="작성">
 				<!-- 뒤로가기 버튼 -->
 				<input type="reset" value="취소" onclick="history.back();">
 			</div>

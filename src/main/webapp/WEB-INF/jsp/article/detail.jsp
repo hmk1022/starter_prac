@@ -14,34 +14,8 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 <head>
 <meta charset="UTF-8">
 <title>게시물 상세페이지</title>
-<style>
-.con {
-	width: 1000px;
-	margin: 0 auto;
-}
 
-.common-form>div>* {
-	float: left;
-}
-
-.common-form>div::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-.common-form>div>span {
-	width: 50px;
-}
-
-.common-form>div>div {
-	width: calc(100% - 50px);
-}
-
-.common-form>div>div>input[type="text"], .common-form>div>div>textarea {
-	width: 90%;
-}
-</style>
+<lint rel="stylesheet"  href ="/resource/common.css" />
 
 
 
@@ -57,7 +31,7 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 		<a href="./list">게시물 리스트</a> 
 		<a href="./add">게시물 추가</a>
 		<a href ="./modify?id=${article.id}">게시물 수정</a>
-		<a href ="./doDelete?id=${article.id}">게시물 삭제</a>
+		<a onclick="if (confirm('삭제하시겠습니까?') === false) return false"  href ="./doDelete?id=${article.id}">게시물 삭제</a>
 	</div>
 </body>
 </html>

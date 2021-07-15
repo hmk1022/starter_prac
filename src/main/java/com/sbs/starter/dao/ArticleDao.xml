@@ -9,16 +9,22 @@
 	<select id="getTotalCount" parameterType="map" resultType="int">
 		SELECT COUNT(*) FROM article
 	</select>
-	
+
 	<!-- 게시물 한개 가져오기(상세보기) -->
 	<select id="getOne" parameterType="long" resultType="Article">
 		SELECT * FROM article
 		WHERE id = #{id}
 	</select>
-	
-	
+
+	<!-- 게시물 삭제 -->
+	<delete id="delete" parameterType="long" >
+		DELETE FROM article
+		WHERE id = #{id}
+	</delete>
+
+
 	<!-- genertate article key & 게시물 등록 -->
-	<insert id="add" parameterType ="map" useGeneratedKeys="true" keyProperty="id">
+	<insert id="add" parameterType="map" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO article
 		SET regDate = NOW(),
 		title = #{title},
