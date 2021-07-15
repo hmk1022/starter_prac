@@ -13,6 +13,7 @@ import com.sbs.starter.dto.Article;
 import com.sbs.starter.util.CUtil;
 
 import groovy.util.logging.Slf4j;
+// Impl은 꼭 작성해야 하는 것은 아니지만 미묘하게 발생할 수 있는 버그를 컴파일러 단계에서 수정할 수 있도록 도와준다
 
 @Service
 @Slf4j
@@ -52,4 +53,16 @@ public class ArticleServiceImpl implements ArticleService {
 		return articleDao.getTotalCount();
 		
 		}
+
+	@Override
+	public Article getOne(long id) {
+		// TODO Auto-generated method stub
+		return articleDao.getOne(id);
+	}
+
+	@Override
+	public Article getOne() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

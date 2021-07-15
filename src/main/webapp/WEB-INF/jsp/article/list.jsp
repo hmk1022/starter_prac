@@ -29,6 +29,9 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 		<hr>
 	</c:forEach>
 
+	<a href = "./add">게시물 추가</a>
+
+
 	<%-- 	<h2>v1</h2>
 	<!-- el의 장점은 request.getAttribue("article")할 필요가 없다 -->
 	<!-- 반복문을 써서 화면에 하나씩 출력한다 자바스크립트 for문이랑 비슷!  -->
