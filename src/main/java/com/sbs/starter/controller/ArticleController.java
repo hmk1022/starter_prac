@@ -27,14 +27,16 @@ public class ArticleController {
 	@RequestMapping("/article/detail") // 이 url로 요청이 오면
 	public String showDetail(Model model, long id) { // id도 받아야 id에 맞는 상세페이지 view 제공
 
-		Article article = articleService.getOne(id);
-
-		//조회수
+		Article article = articleService.getOne(id); 
+		//dto에 정의 해놓은 Atricle 객체를 이용해 선언하고
+		//article = ArticleService에 정의 해놓은 getOne(id)을 이용해 찾은 데이터 
 		
+		//조회수
 		articleService.hitUp(id);
 	
 		model.addAttribute("article", article);
-
+		// model에 getOne(id)로 찾은 article정보를 넣어준다?
+		
 		return "article/detail"; // jsp 파일을 보내줌
 	}
 
@@ -43,9 +45,11 @@ public class ArticleController {
 	public String showModify(Model model, long id) { // id도 받아야 id에 맞는 상세페이지 view 제공
 
 		Article article = articleService.getOne(id);
-
+		// 위와 같이 id를 이용해 게시글을 찾아온다
+		
 		model.addAttribute("article", article);
-
+		// title과 body를 바꾼 article을 model에 넣어준다.
+		
 		return "article/modify"; // jsp 파일을 보내줌
 	}
 	
@@ -54,15 +58,19 @@ public class ArticleController {
 	public String showList(Model model) { // 이렇게 response를 해준다
 
 		List<Article> list = articleService.getList();
+		//음.. Aricle을 리스트로 형식으로 가져온다? 
+		
+		//전체 게시물 수 
 		int totalCount = articleService.getTotalCount();
-
+		
 		// System.out.println("list : " + list); // 디버깅
 		// request.setAttribute("list", list); 와 같은 표현이다
 		model.addAttribute("list", list);
 
 		// 전체 게시물 개수
 		model.addAttribute("totalCount", totalCount);
-
+		// model 이라는 객체에 totalCount : totalCouun(전체 게시물 수) 추가
+		
 		return "article/list"; // jsp 파일을 보내줌
 	}
 
