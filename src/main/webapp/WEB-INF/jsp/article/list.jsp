@@ -9,15 +9,7 @@
 List<Article> list = (List<Article>) request.getAttribute("list");
 %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시판</title>
-<lint rel="stylesheet" href="/resource/common.css" />
-</head>
-<body>
-	<h1>게시물 리스트</h1>
+<%@ include file = "../part/head.jspf"  %>
 
 	<h2 class="con">전체 게시물 개수 : ${totalCount}</h2>
 
@@ -56,6 +48,4 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 	}
 	%> --%>
 
-
-</body>
-</html>
+<%@ include file = "../part/foot.jspf"  %>

@@ -1,24 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*"%>
-<%@ page import="com.sbs.starter.dto.Article"%>
 
 <!-- jstl 문법사용 -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-List<Article> list = (List<Article>) request.getAttribute("list");
-%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시물 작성</title>
+<%@ include file = "../part/head.jspf"  %>
 
-<lint rel="stylesheet" href="/resource/common.css" />
-</head>
-<body>
-	
 	<script>
 		function submitAddForm(form) {
 			/* trim은 공백제거  */
@@ -69,6 +55,6 @@ List<Article> list = (List<Article>) request.getAttribute("list");
 			</div>
 		</div>
 	</form>
-
+<%@ include file = "../part/foot.jspf"  %>
 </body>
 </html>
