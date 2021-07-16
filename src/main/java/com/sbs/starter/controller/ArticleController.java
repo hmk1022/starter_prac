@@ -18,7 +18,6 @@ import groovy.util.logging.Slf4j;
 
 @Controller
 @Slf4j // log.info(...)이 가능하게 됨 , 디버깅 용도
-
 public class ArticleController {
 	@Autowired // Bean 자동주입
 	ArticleService articleService;
