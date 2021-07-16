@@ -28,6 +28,4 @@
 		WHERE loginId = #{loginId}
 		AND loginPw = #{loginPw}
 	</select>
-
-
 </mapper>

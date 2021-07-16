@@ -32,6 +32,14 @@ public class MemberController {
 		return "member/login";
 	}
 	
+	@RequestMapping("/member/doLogout")
+	public String doLogout(HttpSession session) {
+		session.removeAttribute("loginedMemberId");
+		
+		return "redirect:/";
+	}
+	
+	
 	@RequestMapping("/member/doLogin")
 	public String doLogin(@RequestParam Map<String, Object> param, Model model, HttpSession session  ) {
 		// id와 pw가 일치하는 유저가 있는지 찾아보기
@@ -45,9 +53,10 @@ public class MemberController {
 			return "common/redirect";
 		}
 		
-		// 일치하는 회원정보가 있을경우
+		// 일치하는 회원정보가 있을경우 // 쿠기가 생긴다??
 		session.setAttribute("loginedMemberId", matchedMember.getId());
 		
+		model.addAttribute("userId", matchedMember.getId());
 		model.addAttribute("alertMsg", "로그인 되었습니다");
 		model.addAttribute("redirectUrl","/");
 		

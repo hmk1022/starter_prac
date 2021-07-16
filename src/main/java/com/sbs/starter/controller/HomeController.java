@@ -21,29 +21,29 @@ public class HomeController {
 	MemberService memberService;
 
 	@RequestMapping("/home/main")
-	public String showMain(HttpSession session, Model model) {
+	/* 인터셉트를 이용하면 아래 코드는 필요가 없어진다
+	 * public String showMain(HttpSession session, Model model) {
+	 * 
+	 * 
+	 * // 접속한 회원정보를 url에 보여주기 위함? HttpSession
+	 * 
+	 * long loginedMemberId = 0;
+	 * 
+	 * // 로그인 체크 if (session.getAttribute("loginedMemberId") != null) { // 비회원으로
+	 * 게시판에 접근 loginedMemberId = (long)session.getAttribute("loginedMemberId"); }
+	 * 
+	 * // 해당 로그인 번호로 db에서 회원의 정보를 불러오기 // 거의 모든 페이지에 필요한작업 Member loginedMember =
+	 * memberService.getOne(loginedMemberId);
+	 * 
+	 * 
+	 * 
+	 * return "home/main"; }
+	 */
 	
-		
-		// 접속한 회원정보를 url에 보여주기 위함? HttpSession
-		
-		long loginedMemberId = 0;
-		
-		if (session.getAttribute("loginedMemberId") != null) {
-			// 비회원으로 게시판에 접근
-			loginedMemberId = (long)session.getAttribute("loginedMemberId");
-		}
-		
-		Member loginedMember = memberService.getOne(loginedMemberId);
-		
-		
+
+	public String showMain2(Model model) {
 		
 		return "home/main";
-	}
-	
-	@RequestMapping("/")
-	public String showMain2() {
-		
-		return "redicect:/home/main";
 	}
 
 }

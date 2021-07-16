@@ -18,6 +18,8 @@ console.log('hello');
 		history.back();
 	}
 	if ( redirectUrl ) {
+		console.log('리다이렉트 : ',redirectUrl)
+		if(redirectUrl == '/') localStorage.setItem('userId', ${userId});
 		location.replace(redirectUrl);
 	}
 </script> 
