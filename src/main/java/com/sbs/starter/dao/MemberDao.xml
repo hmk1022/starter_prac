@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- DB에 접근하는 곳 -->
+<mapper namespace="com.sbs.starter.dao.MemberDao">
+	<!-- id중복 체크 string 값이 id를 받고 중복 결과를 int로 반환 -->
+	<select id="getLoginIdDupCount" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM member
+		WHERE loginId = #{loginId}
+	</select>
+	
+</mapper>
