@@ -19,10 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MemberServiceImpl implements MemberService{
 		
-	
-	
-	
-	
 	@Autowired
 	MemberDao memberDao;
 	// 로그인 ID 중복성 체크
